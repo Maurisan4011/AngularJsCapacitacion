@@ -1,0 +1,51 @@
+<article class="jumbotron">
+  <h1 class="hola">Perfiles</h1>
+  <form class="form-inline">
+    <div class="form-group">
+      <label>buscar</label>
+      <input type="text" ng-model="search" class="form-control" placeholder="ingrese lo que desea buscar">
+    </div>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>
+          Apellido
+          <!-- <button ng-click="sortBy('apellido')">Apellido</button>
+                <span class="sortorder" ng-show="propertyName === 'apellido'" ng-class="{reverse: reverse}"></span>-->
+        </th>
+        <th>Perfil</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        ng-class="dato.perfil == '1' ? 'backEnd' : dato.perfil == '2' ? 'frontEnd' : dato.perfil == '3' ? 'diseñador' : dato.perfil == '4' ? 'scrum' : ''"
+        ng-repeat="dato in datos|filter:search | orderBy:'apellido'">
+        <td>{{dato.id}}</td>
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.apellido}}</td>
+        <td>{{obtenerPerfil(dato.perfil)}}</td>
+        <td>
+          <span ng-click="editar()" ng-hide="dato.id==1">visualizar</span>
+          <span ng-click="editar()" ng-hide="dato.id==3"> editar</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="text" name="userName" ng-model="username" ng-change="changeName(3)">
+  <p class="text-right">
+    <a class="btn btn-success btn-lg" href="#/inicio" role="button">
+      Volver
+    </a>
+  </p>
+
+  <p>
+    <a class="btn btn-success btn-lg" ng-click="borrarApellido(1)" role="button">
+      Borrar Apellido ID1
+    </a>
+  </p>
+
+</article>

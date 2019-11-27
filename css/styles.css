@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+    display: flex;
+}
+
+footer {
+    margin-bottom: 1em;
+}
+
+.nav {
+    border: none;
+    
+}
+.changeIdDos{
+    color: orange;
+    text-transform: uppercase;
+}
+.changeIdCinco{
+    color: red;
+    text-decoration: underline;
+}
+.hola{
+    font-family: 'Yeon Sung', cursive;
+
+}
+.backEnd{
+    color:blueviolet;
+}
+.diseñador{
+    color: darkorange;
+}
+.frontEnd{
+    color: greenyellow;
+}
+.scrum{
+    color: peru;
+}
+.sortorder:after {
+  content: '\25b2';  /* BLACK UP-POINTING TRIANGLE*/
+}
+.sortorder.reverse:after {
+  content: '\25bc';  /*BLACK DOWN-POINTING TRIANGLE*/
+}

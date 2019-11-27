@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <script src="js/app.js"></script>
+    
+    <!-- init Controllers -->
+    <script src="js/controllers/PerfilCtrl.js"></script>
+    <script src="js/controllers/DetalleCtrl.js"></script>
+    <!-- end Controllers -->
+
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+
+    <title>Capacitaci&oacute;n AngularJS</title>
+</head>
+
+<body ng-app="firstApp">
+    <header>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="#/">Inicio</a></li>
+                <li role="presentation"><a href="#/perfil">Perfiles</a></li>
+                <!-- <li role="presentation"><a href="#/detalle">Detalle</a></li> -->
+                <!-- <li role="presentation"><a href="#/contacto">Contacto</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div ng-view=""></div>
+    </main>
+    <footer class="footer text-center">
+        <small>Copyright mi aplicaci&oacute;n</small>
+    </footer>
+</body>
+</html>
