@@ -2,20 +2,23 @@
   <h1 class="hola">Perfiles</h1>
   <form class="form-inline">
     <div class="form-group">
-      <label>buscar</label>
-      <input type="text" ng-model="search" class="form-control" placeholder="ingrese lo que desea buscar">
+      <label>buscar por Nombre o Apellido</label>
+      <input type="text" ng-model="search" class="form-control" placeholder="Buscar por Nombre o Apellido">
     </div>
   </form>
+  <form class="form-inline">
+    <div class="form-group">
+  <select class="form-control" name="searchPerfil" ng-model="perfilSelected" ng-change="searchPerfil(perfilSelected)">
+    <option ng-repeat="perfil in perfiles" ng-value="perfil.id">{{perfil.descripcion}}</option>
+  </select>
+      </div>
+      </form>
   <table class="table">
     <thead>
       <tr>
         <th>Id</th>
         <th>Nombre</th>
-        <th>
-          Apellido
-          <!-- <button ng-click="sortBy('apellido')">Apellido</button>
-                <span class="sortorder" ng-show="propertyName === 'apellido'" ng-class="{reverse: reverse}"></span>-->
-        </th>
+        <th>Apellido</th>
         <th>Perfil</th>
         <th>Acciones</th>
       </tr>
@@ -23,7 +26,7 @@
     <tbody>
       <tr
         ng-class="dato.perfil == '1' ? 'backEnd' : dato.perfil == '2' ? 'frontEnd' : dato.perfil == '3' ? 'diseñador' : dato.perfil == '4' ? 'scrum' : ''"
-        ng-repeat="dato in datos|filter:search | orderBy:'apellido'">
+        ng-repeat="dato in autocomplete">
         <td>{{dato.id}}</td>
         <td>{{dato.nombre}}</td>
         <td>{{dato.apellido}}</td>

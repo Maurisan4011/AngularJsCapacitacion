@@ -1,11 +1,11 @@
-angular.module("firstApp").controller("PerfilCtrl", function($scope) {
+angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
   $scope.datos = [
     {
       nombre: "Mario",
       apellido: "Bros",
       id: 01,
       perfil: 3,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, commodi asperiores. Iste porro molestiae impedit assumenda, voluptas tempore hic qui, magnam saepe rerum fugit nisi tempora, unde explicabo. Iusto, facilis."
     },
@@ -14,7 +14,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Argento",
       id: 002,
       perfil: 4,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Rerum saepe incidunt rem harum unde ipsa eum nostrum itaque natus eos optio, perspiciatis vel ipsam obcaecati dolorem quibusdam eveniet, laborum pariatur, explicabo repudiandae consequatur quasi. Ad, aut itaque. Debitis."
     },
@@ -23,7 +23,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Legend",
       id: 03,
       perfil: 2,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Obcaecati nisi quidem molestias placeat dolore laboriosam autem nam nostrum. Autem reprehenderit iste eos, quidem doloremque omnis accusantium repellendus tempore, in officiis alias cum. Eum odio aliquid tempora laboriosam sint."
     },
@@ -32,8 +32,8 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Rebelde",
       id: 004,
       perfil: 1,
-      email : 'mimail@gmail.com',
-      presentacion: "No controla sus sentidos" 
+      email: 'mimail@gmail.com',
+      presentacion: "No controla sus sentidos"
     },
 
     {
@@ -41,7 +41,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Molinero",
       id: 005,
       perfil: 2,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion: "Pelicula Dibujos Animados "
     },
 
@@ -50,7 +50,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Nicotina",
       id: 06,
       perfil: 4,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, commodi asperiores. Iste porro molestiae impedit assumenda, voluptas tempore hic qui, magnam saepe rerum fugit nisi tempora, unde explicabo. Iusto, facilis."
     },
@@ -59,7 +59,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Dinamita",
       id: 07,
       perfil: 3,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, commodi asperiores. Iste porro molestiae impedit assumenda, voluptas tempore hic qui, magnam saepe rerum fugit nisi tempora, unde explicabo. Iusto, facilis."
     },
@@ -68,7 +68,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Maradona",
       id: 08,
       perfil: 4,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, commodi asperiores. Iste porro molestiae impedit assumenda, voluptas tempore hic qui, magnam saepe rerum fugit nisi tempora, unde explicabo. Iusto, facilis."
     },
@@ -77,7 +77,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Bros",
       id: 09,
       perfil: 1,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, commodi asperiores. Iste porro molestiae impedit assumenda, voluptas tempore hic qui, magnam saepe rerum fugit nisi tempora, unde explicabo. Iusto, facilis."
     },
@@ -86,7 +86,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       apellido: "Pellegrino",
       id: 10,
       perfil: 1,
-      email : 'mimail@gmail.com',
+      email: 'mimail@gmail.com',
       presentacion: "No controla sus sentidos"
     }
   ];
@@ -119,8 +119,8 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
     }
     return perfil
   }
-  
-  $scope.changeName = function(id) {
+
+  $scope.changeName = function (id) {
     for (let i = 0; i < $scope.datos.length; i++) {
       if ($scope.datos[i].id == id) {
         $scope.datos[i].nombre = $scope.username;
@@ -129,7 +129,7 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
     }
   };
 
-  $scope.changeName = function(id) {
+  $scope.changeName = function (id) {
     for (let i = 0; i < $scope.datos.length; i++) {
       if ($scope.datos[i].id == id) {
         $scope.datos[i].nombre = $scope.username;
@@ -137,8 +137,23 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
       }
     }
   };
+  //buscador nombre y apellido
+  $scope.$watch('search', function (val) {
+    $scope.autocomplete = (val && val.length >= 3) ?
+      $scope.datos.filter(function (item) {
+        return (item['nombre'].toLowerCase().includes(val.toLowerCase()) || item['apellido'].toLowerCase().includes(val.toLowerCase()));
+      }) : $scope.datos;
+  });
 
-  $scope.borrarApellido = function(id) {
+  //buscador Perfiles
+
+  $scope.searchPerfil = function (id) {
+    $scope.autocomplete =$scope.datos.filter(function (item) {
+        return (item['perfil'] == id);
+      });
+  }
+
+  $scope.borrarApellido = function (id) {
     for (let i = 0; i < $scope.datos.length; i++) {
       if ($scope.datos[i].id == id) {
         $scope.datos[i].apellido = "";
@@ -147,31 +162,19 @@ angular.module("firstApp").controller("PerfilCtrl", function($scope) {
     }
   };
 
-$scope.editar = function () {
-  window.location = "#/editar";
-}
-})
-.filter('mayuscula', function () {
-  return function (val) {
-    return val.charAt(0).toUpperCase() + val.slice(1, -1) + val.charAt(val.length - 1).toUpperCase();
+  $scope.editar = function () {
+    window.location = "#/editar";
   }
-
-
-
-
-
-  $scope.propertyName = 'apellido';
-  $scope.reverse = true;
-  $scope.datos = orderBy(datos, $scope.propertyName, $scope.reverse);
-
-
-
-  $scope.sortBy = function (propertyName) {
-    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-    $scope.propertyName = propertyName;
-  };
-
 })
+//mayusculas
+  .filter('mayuscula', function () {
+    return function (val) {
+      return val.charAt(0).toUpperCase() + val.slice(1, -1) + val.charAt(val.length - 1).toUpperCase();
+    }
+
+
+  })
+
 
 
 
