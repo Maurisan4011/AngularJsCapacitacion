@@ -144,7 +144,11 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
         return (item['nombre'].toLowerCase().includes(val.toLowerCase()) || item['apellido'].toLowerCase().includes(val.toLowerCase()));
       }) : $scope.datos;
   });
-
+ //sELECCIONAR PERSIL
+  $scope.perfilSelected = function (id) {
+    
+  }
+  
   //buscador Perfiles
 
   $scope.searchPerfil = function (id) {

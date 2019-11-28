@@ -8,8 +8,8 @@
   </form>
   <form class="form-inline">
     <div class="form-group">
-  <select class="form-control" name="searchPerfil" ng-model="perfilSelected" ng-change="searchPerfil(perfilSelected)">
-    <option ng-repeat="perfil in perfiles" ng-value="perfil.id">{{perfil.descripcion}}</option>
+  <select class="form-control" name="searchPerfil" ng-model="obtenerPerfil" ng-change="searchPerfil(perfilSelected)">
+    <option ng-repeat="perfil in getPerfiles()" ng-value="perfil.id"> {{perfil.descripcion}}</option>
   </select>
       </div>
       </form>
