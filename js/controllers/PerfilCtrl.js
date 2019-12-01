@@ -109,6 +109,22 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
   }
   ];
 
+  //Gurada nuevo perfil
+  $scope.Guardar = function () {
+    $scope.datos.push({ id: $scope.nuevoPerfil.id, nombre: $scope.nuevoPerfil.nombre, apellido: $scope.nuevoPerfil.apellido, perfil: $scope.nuevoPerfil.perfil, email: $scope.nuevoPerfil.email });
+    //Para vialualizar denuevo el form
+    $scope.formVisibility = false;
+    console.log($scope.formVisibility)
+  }
+
+  //Visualizar formulario
+  $scope.formVisibility=false;
+
+  $scope.ShowForm = function () {
+    $scope.formVisibility = true;
+    console.log($scope.formVisibility)
+  }
+
   $scope.obtenerPerfil = function (idPerfil) {
     var perfil = '';
     for (var i = 0; i <= perfiles.length; i++) {
@@ -144,17 +160,17 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
         return (item['nombre'].toLowerCase().includes(val.toLowerCase()) || item['apellido'].toLowerCase().includes(val.toLowerCase()));
       }) : $scope.datos;
   });
- //sELECCIONAR PERSIL
+  //sELECCIONAR PERSIL
   $scope.perfilSelected = function (id) {
-    
+
   }
-  
+
   //buscador Perfiles
 
   $scope.searchPerfil = function (id) {
-    $scope.autocomplete =$scope.datos.filter(function (item) {
-        return (item['perfil'] == id);
-      });
+    $scope.autocomplete = $scope.datos.filter(function (item) {
+      return (item['perfil'] == id);
+    });
   }
 
   $scope.borrarApellido = function (id) {
@@ -170,7 +186,7 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
     window.location = "#/editar";
   }
 })
-//mayusculas
+  //mayusculas
   .filter('mayuscula', function () {
     return function (val) {
       return val.charAt(0).toUpperCase() + val.slice(1, -1) + val.charAt(val.length - 1).toUpperCase();
