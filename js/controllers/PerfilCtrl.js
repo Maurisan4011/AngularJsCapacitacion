@@ -91,7 +91,7 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
     }
   ];
 
-  var perfiles = [{
+$scope.perfiles = [{
     id: 1,
     descripcion: 'Full Stack'
   },
@@ -127,23 +127,14 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
 
   $scope.obtenerPerfil = function (idPerfil) {
     var perfil = '';
-    for (var i = 0; i <= perfiles.length; i++) {
-      if (perfiles[i].id == idPerfil) {
-        perfil = perfiles[i].descripcion;
+    for (var i = 0; i <= $scope.perfiles.length; i++) {
+      if ($scope.perfiles[i].id == idPerfil) {
+       perfil = $scope.perfiles[i].descripcion;
         break;
       }
     }
     return perfil
   }
-
-  $scope.changeName = function (id) {
-    for (let i = 0; i < $scope.datos.length; i++) {
-      if ($scope.datos[i].id == id) {
-        $scope.datos[i].nombre = $scope.username;
-        break;
-      }
-    }
-  };
 
   $scope.changeName = function (id) {
     for (let i = 0; i < $scope.datos.length; i++) {
@@ -161,9 +152,6 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
       }) : $scope.datos;
   });
   //sELECCIONAR PERSIL
-  $scope.perfilSelected = function (id) {
-
-  }
 
   //buscador Perfiles
 

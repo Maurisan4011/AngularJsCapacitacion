@@ -8,9 +8,8 @@
   </form>
   <form class="form-inline">
     <div class="form-group">
-      <select class="form-control" name="searchPerfil" ng-model="obtenerPerfil"
-        ng-change="searchPerfil(perfilSelected)">
-        <option ng-repeat="perfil in getPerfiles()" ng-value="perfil.id"> {{perfil.descripcion}}</option>
+      <select name="searchPerfil" ng-model="obtenerPerfil" ng-change="searchPerfil(obtenerPerfil)">
+        <option ng-repeat="perfil in perfiles" ng-value="perfil.id"> {{perfil.descripcion}}</option>
       </select>
     </div>
   </form>
@@ -53,8 +52,9 @@
   </p>
 </article>
 </br>
-<center><button ng-click="ShowForm()" ng-hide="formVisibility" class="btn btn-success">Agregar Perfil Nuevo</button></center>
-<article ng-show="formVisibility" class="jumbotron" >
+<center><button ng-click="ShowForm()" ng-hide="formVisibility" class="btn btn-success">Agregar Perfil Nuevo</button>
+</center>
+<article ng-show="formVisibility" class="jumbotron">
   <div class="wrapper">
     <h1>Formulario LLenar con datos correctos</h1>
     <hr>
@@ -75,27 +75,37 @@
         <input id="inputApellido" type="text" class="form-control" placeholder="Apellido" name="apellidoU"
           ng-model="nuevoPerfil.apellido" required>
       </div>
+   
       <div class="form-group" ng-class="{'has-error': forma.perfilU.$invalid, 'has-success': forma.perfilU.$valid}">
         <label for="inputPerfil">Perfil</label>
         <input id="inputPerfil" type="text" class="form-control"
           placeholder="id: 1: 'Full Stack'| id: 2: 'Back-end'| id: 3: 'Front-end' |id: 4 : 'Disenador' " name="perfilU"
           ng-model="nuevoPerfil.perfil" required>
       </div>
-      <div class="form-group" ng-class="{'has-error': forma.emailU.$invalid, 'has-success': forma.emailU.$valid}">
-        <label for="inputEmail">Email</label>
-        <input id="inputEmail" type="email" class="form-control" placeholder="email" name="emailU" ng-model="dato.email"
-          required>
-        <div ng-show="forma.emailU.$dirty && forma.emailU.$invalid">
-          <p class="help-block text-danger" ng-show="forma.emailU.$error.required">Campo obligatorio</p>
-          <p class="help-block text-danger" ng-show="forma.emailU.$error.email">Email invalido</p>
-        </div>
+  <!--
+      <div class="form-group" ng-class="{'has-error': forma.perfilU.$invalid, 'has-success': forma.perfilU.$valid}">
+        <label for="inputPerfil">Seleccione Perfil</label>
+        <select class="form-control" name="searchPerfil" ng-model="nuevoPerfil.perfil"
+          ng-change="searchPerfil(nuevoPerfil.perfil)">
+          <option ng-repeat="perfil in perfiles" ng-value="perfil.id"> {{perfil.descripcion}}</option>
+        </select>
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="aceptoU" ng-model="usuario.acepto" required> Acepto.
-        </label>
+-->
+    <div class="form-group" ng-class="{'has-error': forma.emailU.$invalid, 'has-success': forma.emailU.$valid}">
+      <label for="inputEmail">Email</label>
+      <input id="inputEmail" type="email" class="form-control" placeholder="email" name="emailU" ng-model="dato.email"
+        required>
+      <div ng-show="forma.emailU.$dirty && forma.emailU.$invalid">
+        <p class="help-block text-danger" ng-show="forma.emailU.$error.required">Campo obligatorio</p>
+        <p class="help-block text-danger" ng-show="forma.emailU.$error.email">Email invalido</p>
       </div>
-      <button ng-click="Guardar()" class="btn btn-success" ng-disabled="forma.$invalid">Registrar</button>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="aceptoU" ng-model="usuario.acepto" required> Acepto.
+      </label>
+    </div>
+    <button ng-click="Guardar()" class="btn btn-success" ng-disabled="forma.$invalid">Registrar</button>
     </form>
     <div>
     </div>
