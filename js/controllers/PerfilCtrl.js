@@ -91,7 +91,7 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
     }
   ];
 
-$scope.perfiles = [{
+  $scope.perfiles = [{
     id: 1,
     descripcion: 'Full Stack'
   },
@@ -118,7 +118,7 @@ $scope.perfiles = [{
   }
 
   //Visualizar formulario
-  $scope.formVisibility=false;
+  $scope.formVisibility = false;
 
   $scope.ShowForm = function () {
     $scope.formVisibility = true;
@@ -129,7 +129,7 @@ $scope.perfiles = [{
     var perfil = '';
     for (var i = 0; i <= $scope.perfiles.length; i++) {
       if ($scope.perfiles[i].id == idPerfil) {
-       perfil = $scope.perfiles[i].descripcion;
+        perfil = $scope.perfiles[i].descripcion;
         break;
       }
     }
