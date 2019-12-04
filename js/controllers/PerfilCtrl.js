@@ -111,7 +111,7 @@ $scope.perfiles = [{
 
   //Gurada nuevo perfil
   $scope.Guardar = function () {
-    $scope.datos.push({ id: $scope.nuevoPerfil.id, nombre: $scope.nuevoPerfil.nombre, apellido: $scope.nuevoPerfil.apellido, perfil: $scope.nuevoPerfil.perfil, email: $scope.nuevoPerfil.email });
+    $scope.datos.push({ id: $scope.nuevoPerfil.id, nombre: $scope.nuevoPerfil.nombre, apellido: $scope.nuevoPerfil.apellido, perfil: $scope.obtenerPerfildue, email: $scope.nuevoPerfil.email });
     //Para vialualizar denuevo el form
     $scope.formVisibility = false;
     console.log($scope.formVisibility)
@@ -130,6 +130,17 @@ $scope.perfiles = [{
     for (var i = 0; i <= $scope.perfiles.length; i++) {
       if ($scope.perfiles[i].id == idPerfil) {
        perfil = $scope.perfiles[i].descripcion;
+        break;
+      }
+    }
+    return perfil
+  }
+
+  $scope.obtenerPerfildue = function (idPerfil) {
+    var perfil = '';
+    for (var i = 0; i <= $scope.perfiles.length; i++) {
+      if ($scope.perfiles[i].id == idPerfil) {
+        perfil = $scope.perfiles[i].descripcion;
         break;
       }
     }
