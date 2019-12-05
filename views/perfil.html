@@ -30,7 +30,7 @@
         <td>{{dato.id}}</td>
         <td>{{dato.nombre}}</td>
         <td>{{dato.apellido}}</td>
-        <td>{{obtenerPerfil(dato.perfil)}}</td>
+        <td>{{getDescripcionPerfil(dato.perfil)}}</td>
         <td>
           <span ng-click="editar()" ng-hide="dato.id==1">visualizar</span>
           <span ng-click="editar()" ng-hide="dato.id==3"> editar</span>

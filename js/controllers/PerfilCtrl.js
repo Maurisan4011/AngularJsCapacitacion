@@ -125,17 +125,13 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
     console.log($scope.formVisibility)
   }
 
-  $scope.obtenerPerfil = function (idPerfil) {
-    var perfil = '';
-    for (var i = 0; i <= $scope.perfiles.length; i++) {
-      if ($scope.perfiles[i].id == idPerfil) {
-        perfil = $scope.perfiles[i].descripcion;
-        break;
-      }
+  $scope.getDescripcionPerfil = function(perfil) {
+    for (let i = 0; i < $scope.perfiles.length; i++) {
+        if ($scope.perfiles[i].id == perfil) {
+            return $scope.perfiles[i].descripcion;
+        }
     }
-    return perfil
-  }
-
+};
   $scope.obtenerPerfildue = function (idPerfil) {
     var perfil = '';
     for (var i = 0; i <= $scope.perfiles.length; i++) {
