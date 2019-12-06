@@ -125,13 +125,13 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
     console.log($scope.formVisibility)
   }
 
-  $scope.getDescripcionPerfil = function(perfil) {
+  $scope.getDescripcionPerfil = function (perfil) {
     for (let i = 0; i < $scope.perfiles.length; i++) {
-        if ($scope.perfiles[i].id == perfil) {
-            return $scope.perfiles[i].descripcion;
-        }
+      if ($scope.perfiles[i].id == perfil) {
+        return $scope.perfiles[i].descripcion;
+      }
     }
-};
+  };
   $scope.obtenerPerfildue = function (idPerfil) {
     var perfil = '';
     for (var i = 0; i <= $scope.perfiles.length; i++) {
@@ -158,7 +158,7 @@ angular.module("firstApp").controller("PerfilCtrl", function ($scope) {
         return (item['nombre'].toLowerCase().includes(val.toLowerCase()) || item['apellido'].toLowerCase().includes(val.toLowerCase()));
       }) : $scope.datos;
   });
-  //sELECCIONAR PERSIL
+
 
   //buscador Perfiles
 
